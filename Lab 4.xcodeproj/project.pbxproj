@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EEB628FF2A59901700ED2B35 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB628FE2A59901700ED2B35 /* NetworkManager.swift */; };
+		EEB629012A59902400ED2B35 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB629002A59902400ED2B35 /* ResponseModels.swift */; };
 		EEE253842A51AD5E00B1429D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE253832A51AD5E00B1429D /* AppDelegate.swift */; };
 		EEE253862A51AD5E00B1429D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE253852A51AD5E00B1429D /* SceneDelegate.swift */; };
 		EEE2538B2A51AD5E00B1429D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE253892A51AD5E00B1429D /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EEB628FE2A59901700ED2B35 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EEB629002A59902400ED2B35 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
 		EEE253802A51AD5E00B1429D /* Lab 4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lab 4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE253832A51AD5E00B1429D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE253852A51AD5E00B1429D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EEB628FD2A598FF400ED2B35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEB628FE2A59901700ED2B35 /* NetworkManager.swift */,
+				EEB629002A59902400ED2B35 /* ResponseModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EEE253772A51AD5E00B1429D = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,7 @@
 		EEE253822A51AD5E00B1429D /* Lab 4 */ = {
 			isa = PBXGroup;
 			children = (
+				EEB628FD2A598FF400ED2B35 /* Model */,
 				EEE253832A51AD5E00B1429D /* AppDelegate.swift */,
 				EEE253852A51AD5E00B1429D /* SceneDelegate.swift */,
 				EEE253892A51AD5E00B1429D /* Main.storyboard */,
@@ -144,11 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB628FF2A59901700ED2B35 /* NetworkManager.swift in Sources */,
 				EEE253B82A51BCA700B1429D /* PersonViewController.swift in Sources */,
 				EEE253842A51AD5E00B1429D /* AppDelegate.swift in Sources */,
 				EEE253B42A51AFBB00B1429D /* MainTableViewController.swift in Sources */,
 				EEE253B62A51B29E00B1429D /* Person.swift in Sources */,
 				EEE253862A51AD5E00B1429D /* SceneDelegate.swift in Sources */,
+				EEB629012A59902400ED2B35 /* ResponseModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
