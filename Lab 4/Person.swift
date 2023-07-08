@@ -6,41 +6,45 @@
 //
 
 import Foundation
+import UIKit
 
 class Person{
-    enum Status {
-        case alive
-        case dead
-        case unknown
+    enum Status:String {
+        case alive = "Alive"
+        case dead = "Dead"
+        case unknown = "Unknown"
     }
     
     enum Gender:String {
-        case female = "female"
-        case male = "male"
-        case genderless = "genderless"
-        case unknown = "unknown"
+        case female = "Female"
+        case male = "Male"
+        case genderless = "Genderless"
+        case unknown = "Unknown"
     }
     
     let id: Int
     let name: String
-    
-    let lastName:String
-    var fullName:String{
-        return name + " " + lastName
-    }
     var status: Status
     var species: String
+    let type: String
     var gender: Gender
     var location: String
+    let image: UIImage
+    let episode: [String]
+    let url: String
+    let created: String
     
-    
-    init(id: Int, name: String, lastName: String, status: Status, species: String, gender: Gender, location: String) {
+    init(id: Int, name: String, status: String, species: String, type: String, gender: String?, location: String, image: UIImage, episode: [String], url: String, created: String) {
         self.id = id
         self.name = name
-        self.lastName = lastName
-        self.status = status
+        self.status = Status(rawValue: status) ?? Status.unknown
         self.species = species
-        self.gender = gender
+        self.type = type
+        self.gender = Gender(rawValue: gender ?? "") ?? Gender.unknown
         self.location = location
+        self.image = image
+        self.episode = episode
+        self.url = url
+        self.created = created
     }
 }

@@ -9,13 +9,35 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
+    let networkManager = NetworkManager()
+    
     var persons:[Person] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setPersons()
+                
+        networkManager.getAllCharacters { response, isGetted  in
+            
+            let dispatchGroup0 = DispatchGroup()
+            dispatchGroup0.enter()
+            for person in (response ?? []){
 
+                    self.networkManager.loadImg(url: person.image) { imageFromApi in
+                        var image:UIImage = UIImage(named: "No Photo")!
+                        if let img = imageFromApi{
+                            image = img
+                            print("img: \(person.id)")
+                            
+                        }
+                        print(person.id)
+                        let newPerson = Person(id: person.id, name: person.name, status: person.status.rawValue, species: person.species, type: person.type, gender: person.gender, location: person.location.name, image: image, episode: person.episode, url: person.url, created: person.created)
+                        self.persons.append(newPerson)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -37,11 +59,10 @@ class MainTableViewController: UITableViewController {
         let gender = cell.viewWithTag(3) as! UILabel
         let species = cell.viewWithTag(4) as! UILabel
         
-        name.text = persons[indexPath.row].fullName
+        name.text = persons[indexPath.row].name
         gender.text = persons[indexPath.row].gender.rawValue
         species.text = persons[indexPath.row].species
-        image.image = UIImage(named: persons[indexPath.row].name)
-
+        image.image = persons[indexPath.row].image
 
         return cell
     }
@@ -59,20 +80,4 @@ class MainTableViewController: UITableViewController {
         
         self.present(vc, animated: true)
     }
-    
-    fileprivate func setPersons(){
-        let rick = Person(id: 0, name: "Rick", lastName: "Sanchez", status: .alive, species: "Human" , gender: .male, location: "Home")
-        
-        let morty = Person(id: 1, name: "Morty", lastName: "Smith", status: .alive, species: "Human" , gender: .male, location: "Home")
-        
-        let summer = Person(id: 2, name: "Summer", lastName: "Smith", status: .alive, species: "Human" , gender: .female, location: "Home")
-        
-        let jerry = Person(id: 3, name: "Jerry", lastName: "Smith", status: .alive, species: "Unknown" , gender: .genderless, location: "Home")
-        
-        let beth = Person(id: 4, name: "Beth", lastName: "Smith", status: .alive, species: "Human" , gender: .female, location: "Home")
-        
-        
-        self.persons.append(contentsOf: [rick,morty,summer,jerry,beth])
-    }
-
 }

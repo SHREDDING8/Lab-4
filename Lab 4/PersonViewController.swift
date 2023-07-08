@@ -14,6 +14,8 @@ class PersonViewController: UIViewController {
     var completion: ((Person)->Void)?
     
     
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     @IBOutlet weak var species: UITextField!
     
@@ -23,12 +25,17 @@ class PersonViewController: UIViewController {
     @IBOutlet weak var gender: UISegmentedControl!
     
     
+    
+    
     @IBOutlet weak var status: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.species.text = person.species
         self.location.text = person.location
+        self.image.image = person.image
+        self.name.text = person.name
+        
         
         switch person.gender{
             
@@ -75,6 +82,7 @@ class PersonViewController: UIViewController {
             break
             
         }
+        
     }
     
     
